@@ -1,4 +1,4 @@
-# vuestarter
+# vuestarter-mevn
 
 ## Project setup
 ```

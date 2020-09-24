@@ -24,7 +24,7 @@
 <script>
 
 export default {
-  name: 'vuestarter',
+  name: 'vuestarter-mevn',
   data() {
     return {
       num: 0,
