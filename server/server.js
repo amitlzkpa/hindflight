@@ -6,7 +6,7 @@ const cookieParser = require('cookie-parser');
 const path = require('path');
 const swaggerAPIDocSetup = require('./configs/apidoc');
 
-const DIR = 'dist';
+const DIR = 'build';
 const PORT = process.env.PORT || 8080;
 
 const mongoURI = process.env.MONGO_URL;
@@ -24,7 +24,7 @@ app.use("/", require('./routes'));
 swaggerAPIDocSetup.setup(app);
 
 const base = path.join(__dirname, '../');
-const indexFilePath = path.join(base, '/dist/index.html');
+const indexFilePath = path.join(base, `/${DIR}/index.html`);
 app.use('/*', (req, res) => res.sendFile(indexFilePath));
 
 app.listen(PORT, () => {

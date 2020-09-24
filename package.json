@@ -11,7 +11,7 @@
     "dev": "concurrently \"nodemon --inspect server/server.js\" \"npm run serve\""
   },
   "dependencies": {
-    "@auth0/auth0-spa-js": "^1.8.1",
+    "@auth0/auth0-spa-js": "^1.12.1",
     "axios": "^0.19.2",
     "body-parser": "^1.19.0",
     "concurrently": "^5.2.0",

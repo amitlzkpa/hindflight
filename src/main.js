@@ -6,6 +6,10 @@ import axios from 'axios';
 
 Vue.prototype.$api = axios.create();
 
+Vue.prototype.wait = async function(ms) {
+	return new Promise((resolve) => setTimeout(() => resolve(), ms));
+}
+
 import { Auth0Plugin } from "./auth";
 
 async function main() {
