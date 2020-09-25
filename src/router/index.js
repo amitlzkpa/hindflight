@@ -8,25 +8,50 @@ import { authGuard } from "@/auth/authGuard";
 
 Vue.use(VueRouter);
 
-export default new VueRouter({
+
+const routes =
+[
+  {
+    path: '/',
+    name: 'home',
+    component: Home,
+    meta: {
+      title: route => "App: Home"
+    }
+  },
+  {
+    path: '/about',
+    name: 'about',
+    component: About,
+    meta: {
+      title: route => "App: About"
+    },
+  },
+  {
+    path: '/profile',
+    name: 'profile',
+    component: Profile,
+    meta: {
+      title: route => "App: Profile"
+    },
+    beforeEnter: authGuard
+  }
+];
+
+
+const router = new VueRouter({
   mode: 'history',
   base: '/',
-  routes: [
-    {
-      path: '/',
-      name: 'home',
-      component: Home
-    },
-    {
-      path: '/about',
-      name: 'about',
-      component: About
-    },
-    {
-      path: '/profile',
-      name: 'profile',
-      component: Profile,
-      beforeEnter: authGuard
-    }
-  ]
+  routes: routes
 });
+
+
+router.beforeEach((to, from, next) => {
+  if (to.meta && to.meta.title) {
+    document.title = to.meta.title(to);
+  }
+  next();
+});
+
+
+export default router;
