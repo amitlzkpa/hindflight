@@ -3,6 +3,7 @@ import VueRouter from 'vue-router';
 import Home from '@/views/Home.vue';
 import About from '@/views/About.vue';
 import Profile from '@/views/Profile.vue';
+import Page404 from "@/views/Page404.vue";
 
 import { authGuard } from "@/auth/authGuard";
 
@@ -34,7 +35,14 @@ const routes =
     meta: {
       title: route => "App: Profile"
     },
-    beforeEnter: authGuard
+    beforeEnter: authGuard,
+  },
+  {
+    path: "*",
+    component: Page404,
+    meta: {
+      title: route => "App: Unknown"
+    }
   }
 ];
 
