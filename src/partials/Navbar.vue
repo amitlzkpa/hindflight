@@ -1,15 +1,18 @@
 <template>
   <div>
-    <router-link to="/">Home</router-link>
-    &nbsp;|&nbsp;
-    <router-link to="/about">About</router-link>
-    &nbsp;|&nbsp;
-    <router-link v-if="$auth.isAuthenticated" to="/profile">Profile</router-link>
-    &nbsp;|&nbsp;
-    <span v-if="!$auth.loading">
-      <a v-if="!$auth.isAuthenticated" @click="login" href="#!">Log in</a>
-      <a v-if="$auth.isAuthenticated" @click="logout" href="#!">Log out({{ $auth.user.name }})</a>
-    </span>
+    <b-navbar :fixed-top="true">
+      <template slot="brand">
+        <b-navbar-item tag="router-link" :to="{ path: '/' }">
+          <h2 class="subtitle has-text-primary">HindFlight</h2>
+        </b-navbar-item>
+      </template>
+
+      <template slot="end">
+        <b-navbar-item>
+          Settings
+        </b-navbar-item>
+      </template>
+    </b-navbar>
   </div>
 </template>
 
@@ -17,14 +20,6 @@
 export default {
   name: 'Navbar',
   methods: {
-    login() {
-      this.$auth.loginWithRedirect();
-    },
-    logout() {
-      this.$auth.logout({
-        returnTo: window.location.origin
-      });
-    }
   }
 }
 </script>
