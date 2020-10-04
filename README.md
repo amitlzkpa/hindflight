@@ -1,4 +1,4 @@
-# vuestarter-mevn
+# hindflight
 
 ## Project setup
 ```

@@ -24,7 +24,7 @@
 <script>
 
 export default {
-  name: 'vuestarter-mevn',
+  name: 'hindflight',
   data() {
     return {
       num: 0,
